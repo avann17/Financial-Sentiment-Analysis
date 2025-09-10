@@ -1,53 +1,58 @@
 # Financial Sentiment Analysis
 
-This project implements a financial sentiment analysis pipeline that processes financial texts, extracts sentiment signals, and evaluates model performance. Demonstrates skills in NLP, machine learning, and domain-specific preprocessing.
+This repository contains my implementation of a financial sentiment classification task using natural language processing (NLP) and machine learning. The project predicts whether a financial sentence expresses positive, negative, or neutral sentiment.
 
 ---
 
-## Objective  
-Classify financial documents or statements as positive, negative, or neutral using natural language processing techniques optimized for financial language.
+## Objective
+To apply NLP techniques and machine learning algorithms on financial text data (FinancialPhraseBank dataset) in order to build a reliable sentiment classifier.
 
 ---
 
-## My Experience in This Project  
-- **Text Preprocessing & Cleaning**  
-  Normalized financial text, handled punctuation, tokenized effectively. Applied domain-specific adjustments (e.g., handling ticker symbols, punctuation-heavy formats).
+## My Experience in This Project
+- **Data Handling**:  
+  Imported and explored the FinancialPhraseBank dataset, inspected class distribution, and prepared text/label pairs for modeling.
+  
+- **Text Preprocessing**:  
+  - Tokenization  
+  - Lowercasing  
+  - Stopword removal  
+  - Lemmatization (NLTK/WordNet)  
+  These steps ensured cleaner input for feature extraction.
 
-- **Feature Engineering & Representation**  
-  Represented text using TF-IDF, word embeddings, or transformer-based encodings (e.g., BERT-based models like FinBERT).
+- **Feature Extraction**:  
+  Used **TF-IDF vectorization** to convert text into numerical features suitable for machine learning.
 
-- **Model Development**  
-  Explored sentiment classification via:
-  - Lexicon-based approaches (e.g., VADER, custom financial lexicons)
-  - Classical ML models (SVM, Random Forest, Logistic Regression)
-  - Transformer-based models (FinBERT, optionally fine-tuned)
+- **Model Training**:  
+  Implemented **Logistic Regression** as the primary classifier for sentiment prediction.
 
-- **Model Evaluation & Analysis**  
-  Evaluated using accuracy, precision, recall, F1-score. Conducted error analysis to identify misclassification patterns in financial contexts.
+- **Evaluation**:  
+  Generated a classification report with **accuracy, precision, recall, F1-score** to measure performance.
 
-- **Tools & Workflow  
-  Used Jupyter Notebook for experimentation and documentation. Saved trained models for reuse with `joblib` or equivalent.
+- **Tools**:  
+  Worked in Jupyter Notebook, structured workflow step by step, and documented results.
 
 ---
 
-## Tools & Libraries  
+## Tools & Libraries Used
 - **Python**  
-- **Pandas**, **NumPy** – data manipulation  
-- **NLTK**, **spaCy**, **scikit-learn** – preprocessing, classical modeling  
-- **Transformers** (Hugging Face) – pre-trained transformer models (e.g., FinBERT)  
-- **Joblib** or **pickle** – model persistence  
-- **Jupyter Notebook** – interactive development and documentation  
+- **Pandas, NumPy** – data manipulation  
+- **NLTK** – text preprocessing, stopwords, lemmatization  
+- **scikit-learn** – TF-IDF, Logistic Regression, train/test split, evaluation metrics  
+- **Jupyter Notebook** – interactive development
 
 ---
 
-## Data  
-Dataset derived from Financial PhraseBank, FiQA, or similar financial sentiment corpora. Texts labeled as positive, negative, or neutral for training and evaluation.
+## Dataset
+- **Source**: [FinancialPhraseBank](https://www.researchgate.net/publication/251231364_FinancialPhraseBank-v10)  
+- **Labels**: Positive, Negative, Neutral financial sentences  
+- **Usage**: Preprocessed text → TF-IDF → Logistic Regression model
 
 ---
 
-## How to Run  
+## How to Run
 ```bash
 git clone https://github.com/avann17/Financial-Sentiment-Analysis.git
 cd Financial-Sentiment-Analysis
-pip install -r requirements.txt   # or install the listed libraries
-jupyter notebook                  # open and run analysis notebook
+pip install -r requirements.txt   # or install libraries manually
+jupyter notebook Financial_Sentiment_Analysis.ipynb
